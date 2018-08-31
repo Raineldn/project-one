@@ -96,22 +96,34 @@ var quotes = [
 
 // Create the getRandomQuote function and name it getRandomQuote
 
+
+
 function getRandomQuote(array) {
 	var randomNumber = Math.floor(Math.random() * quotes.length); // To generate a random number
 	var randomQuote = quotes[randomNumber]; // The randomNumber var is then used to generate a random quote.
 	return randomQuote;
 }
 
-// Random background color function (with CREDIT to www.w3resource.com)
-// Found here: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
+// Create random number var for the background color
 
-function backgroundColor() {
-    var x = Math.floor(Math.random() * 256);
-    var y = Math.floor(Math.random() * 256);
-    var z = Math.floor(Math.random() * 256);
-    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+function randomNumber(color) {
+	return Math.floor(Math.random() * color);
 }
-  
+
+
+// Create a random RGB color to be used for the background
+
+function randomBackgroundColor() {
+	var ranColor = 'rgb(' + randomNumber(256) + ',' + randomNumber(256) + ',' + randomNumber(256) + ')';
+	return ranColor;
+}
+
+// Create a random RGBA color to be used for the button
+
+function randomButtonColor() {
+	var ranBtnColor = 'rgba(' + randomNumber(256) + ',' + randomNumber(256) + ',' + randomNumber(256) + ',' + 0.5 + ')';
+	return ranBtnColor;
+}
 
 // Create the printQuote function and name it printQuote
 
@@ -119,8 +131,9 @@ function backgroundColor() {
 
 function printQuote() {
 	var message = ""; 
+	var randomBackground = randomBackgroundColor();
+	var randomButton = randomButtonColor();
 	var quoteString = getRandomQuote(quotes);
-	backgroundColor();
 	message = '<p class="quote">' + quoteString.quote + '</p>';
 	message += '<p class="source">' + quoteString.source;
 
@@ -143,6 +156,8 @@ function printQuote() {
 	}	
 
 	document.getElementById('quote-box').innerHTML = message;
+	document.body.style.backgroundColor = randomBackground;
+	document.getElementById('loadQuote').style.backgroundColor = randomButton;
 }
 
 printQuote();
