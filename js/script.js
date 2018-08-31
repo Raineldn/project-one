@@ -97,11 +97,11 @@ function printQuote() {
 	message = '<p class="quote">' + quoteString.quote + '</p>';
 	message += '<p class="source">' + quoteString.source;
 
-	if ("citation" in quoteString) {
+	if ("citation" in quoteString) { // A conditional for a quote citation.
 	message += '<span class="citation">' + quoteString.citation + '</span>';
 	} 
 
-	if ("date" in quoteString) {
+	if ("date" in quoteString) { // A conditional for a quote date.
 	message += '<span class="year">' + quoteString.date + '</span>' + '</p>';
 	}
 
@@ -113,4 +113,5 @@ printQuote();
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
-// document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
