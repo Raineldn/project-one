@@ -1,6 +1,7 @@
 // FSJS - Random Quote Generator
 
 // Create the array of quote objects and name it quotes
+// I also added the tag property for extra credit
 
 var quotes = [
 {
@@ -96,8 +97,6 @@ var quotes = [
 
 // Create the getRandomQuote function and name it getRandomQuote
 
-
-
 function getRandomQuote(array) {
 	var randomNumber = Math.floor(Math.random() * quotes.length); // To generate a random number
 	var randomQuote = quotes[randomNumber]; // The randomNumber var is then used to generate a random quote.
@@ -110,8 +109,7 @@ function randomNumber(color) {
 	return Math.floor(Math.random() * color);
 }
 
-
-// Create a random RGB color to be used for the background
+// Create a random RGB color to be used for the background (for extra credit)
 
 function randomBackgroundColor() {
 	var ranColor = 'rgb(' + randomNumber(256) + ',' + randomNumber(256) + ',' + randomNumber(256) + ')';
@@ -127,10 +125,8 @@ function randomButtonColor() {
 
 // Create the printQuote function and name it printQuote
 
-// An empty string which will be filled with the next var.
-
 function printQuote() {
-	var message = ""; 
+	var message = "";  // An empty string which will be filled with the next var.
 	var randomBackground = randomBackgroundColor();
 	var randomButton = randomButtonColor();
 	var quoteString = getRandomQuote(quotes);
@@ -155,6 +151,8 @@ function printQuote() {
 	message += '<span class="tag">' + quoteString.tag + '</p>';
 	}	
 
+	// Added message, plus background and button colors
+
 	document.getElementById('quote-box').innerHTML = message;
 	document.body.style.backgroundColor = randomBackground;
 	document.getElementById('loadQuote').style.backgroundColor = randomButton;
@@ -165,8 +163,7 @@ function printQuote() {
 	// Added the setInterval function for printQuote to refresh every 5.5seconds.
 	// Coded with CREDIT to StackOverflow user: https://stackoverflow.com/questions/729921/
 
-	function myTimeoutFunction()
-	{
+function myTimeoutFunction() {
 	    printQuote();
 	}
 
