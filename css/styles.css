@@ -68,6 +68,22 @@ body {
   font-style: normal;
 }
 
+.tag {
+  font-size: 0.7rem;
+}
+
+.tag:before {
+  content: " (";
+  font-style: normal;
+  font-size: 0.7rem;
+}
+
+.tag:after {
+  content: ") ";
+  font-style: normal;
+  font-size: 0.7rem;
+}
+
 #loadQuote {
   position: fixed;
   width: 12em;
