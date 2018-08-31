@@ -158,12 +158,25 @@ function printQuote() {
 	document.getElementById('quote-box').innerHTML = message;
 	document.body.style.backgroundColor = randomBackground;
 	document.getElementById('loadQuote').style.backgroundColor = randomButton;
-}
+	}
 
-printQuote();
+	printQuote();
 
+	// Added the setInterval function for printQuote to refresh every 5.5seconds.
+	// Coded with CREDIT to StackOverflow user: https://stackoverflow.com/questions/729921/
+
+	function myTimeoutFunction()
+	{
+	    printQuote();
+	}
+
+	myTimeoutFunction();
+	setInterval(myTimeoutFunction, 5500);
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
+
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+
 
